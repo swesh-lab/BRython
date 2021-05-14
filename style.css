@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #f3f0f1;
+}
+.inp-text {
+    width: 250px;
+    height: 30px;
+    background-color: black;
+    color: white;
+}
+.button {
+    width: 50px;
+    height: 40px;
+    background: #f3f0f1;
+    position: relative;
+    background: #f3f0f1;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+}
