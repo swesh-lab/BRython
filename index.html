@@ -5,12 +5,22 @@
     </script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.9/brython_stdlib.js">
     </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body onload="brython()">
-
-    <script type="text/python">
+    <input class="inp-text" id="zone"><button class="button" id="mybutton">click !</button>
+    <div class="d-flex flex-row">
+        <div class="p-2"><div id="joke" class="card">Want to read a joke?</div></div>
+        <div class="p-2"><button id="joke-btn">A joke for me</button></div>
+    </div>
+    <div class="d-flex flex-row">
+        <div class="p-2"><div id="quote" class="card">Quote</div></div>
+        <div class="p-2"><button id="quote-btn">A quote for me</button></div>
+    </div>
+    
+    <script type="text/python" id="scr1">
         from browser import document, alert, html
         document <= html.B("Hello, ") + "world !"
         
@@ -18,11 +28,51 @@
             document <= html.B(html.I("Welcome!")) + document["zone"].value
 
         document["mybutton"].bind("click", echo)
+     
+    </script>
 
+    <script type="text/python" id="scr2">
+        from browser import document, ajax
 
-        </script>
+        url = 'https://official-joke-api.appspot.com/random_joke'
 
-    <input class="inp-text" id="zone"><button class="button" id="mybutton">click !</button>
+        def on_complete(req):
+            import json
+            data = json.loads(req.responseText)
+            joke = data['setup']
+            document['joke'].text = joke
+
+        def get_joke(e):
+            req = ajax.ajax()
+            req.open('GET', url, True)
+            req.bind('complete', on_complete)
+            document['joke'].text = 'Okay :D Let me think...'
+            req.send()
+
+        document['joke-btn'].bind('click', get_joke)
+    </script>
+
+    <script type="text/python" id="scr3">
+        from browser import document, ajax
+
+        url = 'https://api.quotable.io/random'
+
+        def on_complete(req):
+            import json
+            data = json.loads(req.responseText)
+            quote = data['content']
+            document['quote'].text = quote
+
+        def get_quote(e):
+            req = ajax.ajax()
+            req.open('GET', url, True)
+            req.bind('complete', on_complete)
+            document['quote'].text = 'I am recalling a quote for you...'
+            req.send()
+
+        document['quote-btn'].bind('click', get_quote)
+    </script>  
+    
 
 </body>
 
