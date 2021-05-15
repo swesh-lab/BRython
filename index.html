@@ -10,10 +10,10 @@
 </head>
 
 <body onload="brython()">
-    <input class="inp-text" id="zone"><button class="button" id="mybutton">click !</button>
+    
     <div class="d-flex flex-row">
-        <div class="p-2"><div id="joke" class="card">Want to read a joke?</div></div>
-        <div class="p-2"><button id="joke-btn">A joke for me</button></div>
+        <div class="p-2"><div class="button" id="joke" class="card">Want to read a joke?</div></div>
+        <div class="p-2"><button class="button" id="joke-btn">A joke for me</button></div>
     </div>
     <div class="d-flex flex-row">
         <div class="p-2"><div id="quote" class="card">Quote</div></div>
@@ -73,6 +73,8 @@
         document['quote-btn'].bind('click', get_quote)
     </script>  
     
+    <hr style="color:#000; width:60%;">
+    <input class="inp-text" id="zone"><button class="button" id="mybutton">Greetings !</button>
 
 </body>
 
