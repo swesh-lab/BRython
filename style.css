@@ -9,13 +9,13 @@ body {
   background: #f3f0f1;
 }
 .inp-text {
-    width: 250px;
+    width: auto;
     height: 30px;
     background-color: black;
     color: white;
 }
 .button {
-    width: 50px;
+    width: auto;
     height: 40px;
     background: #f3f0f1;
     position: relative;
