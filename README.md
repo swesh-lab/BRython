@@ -7,7 +7,7 @@ BRython Test File
 <!-- NO INSTALLATION -->
 ## No Installation
 
-* By including the Brython scripts from a CDN, you can use Brython without installing it locally:
+By including the Brython scripts from a CDN, you can use Brython without installing it locally:
 
    ```sh
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.9/brython.min.js">
